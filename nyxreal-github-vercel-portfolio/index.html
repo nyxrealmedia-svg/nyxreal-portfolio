@@ -8,6 +8,12 @@
       name="description"
       content="NYXREAL Media Studio creates cinematic AI videos, product promos, brand films, intro videos, DaVinci Resolve edits, color grades, voiceovers, and social campaigns."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -20,8 +26,8 @@
         </span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#videos">Videos</a>
         <a href="#work">Work</a>
+        <a href="#videos">Videos</a>
         <a href="#pipeline">Pipeline</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
@@ -29,17 +35,25 @@
     </header>
 
     <main id="home">
-      <section class="hero">
+      <section class="hero hero-cinematic">
+        <video class="hero-bg-video" autoplay muted loop playsinline poster="assets/nyxreal-higgsfield-hero.png">
+          <source
+            src="https://cdn.openart.ai/openart-ai/production/2026-06/create-video/T88USujcOOt7A8rdBloU/02178229128828800000000000000000000ffffc0a89a61dbfb2c_1782291569724_b29680eb.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="hero-scrim"></div>
+
         <div class="hero-copy">
-          <p class="eyebrow">Gold Coast / AI video / DaVinci Resolve</p>
-          <h1>World-class AI video for brands that need to look premium fast.</h1>
+          <p class="eyebrow">Gold Coast / AI Video Production</p>
+          <h1>The video partner brands call when it has to look right the first time.</h1>
           <p class="lead">
-            NYXREAL Media Studio turns product images, brand references, local business ideas,
-            and raw concepts into cinematic social videos with AI generation, edit, color grade,
-            voiceover, captions, and delivery.
+            NYXREAL pairs AI generation with professional edit, color grading, voiceover, and sound
+            design — the same pipeline founders, agencies, and local brands rely on for premium
+            video without booking a full production crew.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#videos">Watch Portfolio Videos</a>
+            <a class="button primary" href="#work">See the Work</a>
             <a class="button secondary" href="mailto:nyxreal.media@gmail.com">Hire NYXREAL</a>
           </div>
           <div class="proof-strip" aria-label="Portfolio proof points">
@@ -49,14 +63,10 @@
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Featured portfolio access">
-          <img src="assets/nyxreal-higgsfield-hero.png" alt="Cinematic AI editing studio" />
-          <div>
-            <p class="tag">Featured reel library</p>
-            <h2>View the full video portfolio in one shared folder.</h2>
-            <p>Videos stay hosted outside the website so the portfolio loads fast and works cleanly on GitHub, Vercel, Claude, and Codex.</p>
-          </div>
-        </aside>
+        <a class="scroll-cue" href="#work" aria-label="Scroll to portfolio">
+          <span></span>
+          Scroll to see the work
+        </a>
       </section>
 
       <section class="ticker" aria-label="Capabilities">
@@ -70,45 +80,10 @@
         <span>Color grading</span>
       </section>
 
-      <section class="section video-portfolio" id="videos">
-        <div class="section-heading">
-          <p class="eyebrow">Playable video portfolio</p>
-          <h2>Watch the work. No downloads, no waiting.</h2>
-          <p>
-            The full reel library is embedded live below straight from Google Drive, so every
-            project plays directly on this page. Prefer the native Drive viewer with thumbnails,
-            full-screen playback, and folders? Open it in a new tab.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="button primary"
-              href="https://drive.google.com/drive/folders/1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV"
-              target="_blank"
-              rel="noreferrer"
-            >Open Full Video Folder</a>
-            <a class="button secondary" href="mailto:nyxreal.media@gmail.com">Hire NYXREAL</a>
-          </div>
-        </div>
-
-        <div class="video-embed-frame">
-          <iframe
-            src="https://drive.google.com/embeddedfolderview?id=1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV#grid"
-            title="NYXREAL portfolio videos"
-            loading="lazy"
-            allow="autoplay"
-          ></iframe>
-        </div>
-        <p class="embed-note">
-          Don't see thumbnails above? The Drive folder needs sharing set to
-          <strong>"Anyone with the link can view."</strong> You can still
-          <a href="https://drive.google.com/drive/folders/1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV" target="_blank" rel="noreferrer">open the folder directly</a>.
-        </p>
-      </section>
-
       <section class="section work" id="work">
         <div class="section-heading">
-          <p class="eyebrow">Selected work</p>
-          <h2>Client-ready video projects.</h2>
+          <p class="eyebrow">Major work</p>
+          <h2>Front and center, no scrolling required to see what I can do.</h2>
           <p>Each project below links straight to its video in the portfolio folder.</p>
         </div>
 
@@ -173,6 +148,41 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="section video-portfolio" id="videos">
+        <div class="section-heading">
+          <p class="eyebrow">Playable video portfolio</p>
+          <h2>Watch the work. No downloads, no waiting.</h2>
+          <p>
+            The full reel library is embedded live below straight from Google Drive, so every
+            project plays directly on this page. Prefer the native Drive viewer with thumbnails,
+            full-screen playback, and folders? Open it in a new tab.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="https://drive.google.com/drive/folders/1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV"
+              target="_blank"
+              rel="noreferrer"
+            >Open Full Video Folder</a>
+            <a class="button secondary" href="mailto:nyxreal.media@gmail.com">Hire NYXREAL</a>
+          </div>
+        </div>
+
+        <div class="video-embed-frame">
+          <iframe
+            src="https://drive.google.com/embeddedfolderview?id=1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV#grid"
+            title="NYXREAL portfolio videos"
+            loading="lazy"
+            allow="autoplay"
+          ></iframe>
+        </div>
+        <p class="embed-note">
+          Don't see thumbnails above? The Drive folder needs sharing set to
+          <strong>"Anyone with the link can view."</strong> You can still
+          <a href="https://drive.google.com/drive/folders/1z0q8BEkVdPZJqW-lro8Zuuxe_xa-SiEV" target="_blank" rel="noreferrer">open the folder directly</a>.
+        </p>
       </section>
 
       <section class="section pipeline" id="pipeline">
