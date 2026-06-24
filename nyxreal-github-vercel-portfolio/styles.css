@@ -499,6 +499,14 @@ h3 {
   grid-column: span 8;
 }
 
+.video-tile-compact {
+  min-height: 310px;
+}
+
+.video-tile-compact img {
+  min-height: 310px;
+}
+
 .video-tile::after {
   position: absolute;
   inset: 0;
