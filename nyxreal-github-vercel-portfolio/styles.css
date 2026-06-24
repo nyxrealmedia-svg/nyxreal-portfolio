@@ -434,14 +434,16 @@ h3 {
     radial-gradient(circle at 88% 4%, rgba(69, 222, 213, 0.16), transparent 30%);
 }
 
-.video-embed-frame {
+.video-showcase {
   position: relative;
   width: 100%;
-  height: clamp(420px, 62vw, 720px);
   overflow: hidden;
   border: 1px solid rgba(228, 189, 109, 0.32);
   border-radius: var(--radius);
-  background: var(--panel);
+  padding: clamp(18px, 3vw, 34px);
+  background:
+    linear-gradient(135deg, rgba(228, 189, 109, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(14, 16, 18, 0.86), rgba(3, 4, 5, 0.82));
   backdrop-filter: blur(20px) saturate(1.1);
   box-shadow:
     0 28px 90px rgba(0, 0, 0, 0.55),
@@ -449,18 +451,124 @@ h3 {
     0 0 60px rgba(228, 189, 109, 0.14);
 }
 
-.video-embed-frame iframe {
+.showcase-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.showcase-intro .frame-label {
+  position: static;
+  width: max-content;
+}
+
+.showcase-intro h3 {
+  max-width: 680px;
+  margin-bottom: 8px;
+  font-size: clamp(1.6rem, 2.6vw, 3rem);
+  line-height: 0.98;
+}
+
+.showcase-intro p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.video-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.video-tile {
+  position: relative;
+  grid-column: span 4;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(3, 4, 5, 0.72);
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.32);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.video-tile-large {
+  grid-column: span 8;
+}
+
+.video-tile::after {
   position: absolute;
   inset: 0;
+  background:
+    linear-gradient(180deg, transparent 18%, rgba(3, 4, 5, 0.3) 48%, rgba(3, 4, 5, 0.94) 100%),
+    radial-gradient(circle at 16% 14%, rgba(228, 189, 109, 0.18), transparent 34%);
+  content: "";
+  pointer-events: none;
+}
+
+.video-tile img {
   width: 100%;
   height: 100%;
-  border: 0;
+  min-height: 360px;
+  object-fit: cover;
+  opacity: 0.9;
+  filter: saturate(1.08) contrast(1.08);
+  transition: transform 700ms ease, opacity 220ms ease;
+}
+
+.video-tile:hover {
+  border-color: rgba(228, 189, 109, 0.52);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.56);
+  transform: translateY(-5px);
+}
+
+.video-tile:hover img {
+  opacity: 1;
+  transform: scale(1.055);
+}
+
+.video-tile-copy {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+}
+
+.video-tile-copy span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.video-tile-copy h3 {
+  max-width: 540px;
+  margin-bottom: 8px;
+  font-size: clamp(1.22rem, 1.6vw, 1.9rem);
+}
+
+.video-tile-copy p {
+  max-width: 620px;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.video-tile-copy a {
+  display: inline-flex;
+  color: var(--gold);
+  font-weight: 950;
 }
 
 .frame-label {
-  position: absolute;
-  top: 14px;
-  left: 14px;
+  position: relative;
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -485,14 +593,6 @@ h3 {
   border-radius: 50%;
   background: var(--gold);
   content: "";
-}
-
-.frame-vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(228, 189, 109, 0.18), inset 0 40px 60px -40px rgba(3, 4, 5, 0.75), inset 0 -40px 60px -40px rgba(3, 4, 5, 0.75);
 }
 
 .embed-note {
@@ -745,8 +845,13 @@ h3 {
     grid-column: span 6;
   }
 
-  .video-embed-frame {
-    height: clamp(380px, 70vw, 640px);
+  .showcase-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .video-tile,
+  .video-tile-large {
+    grid-column: span 6;
   }
 }
 
@@ -779,9 +884,14 @@ h3 {
     grid-column: span 12;
   }
 
-  .video-embed-frame {
-    height: 78vh;
-    max-height: 560px;
+  .video-tile,
+  .video-tile-large {
+    grid-column: span 12;
+    min-height: 330px;
+  }
+
+  .video-tile img {
+    min-height: 330px;
   }
 
   .site-footer {
