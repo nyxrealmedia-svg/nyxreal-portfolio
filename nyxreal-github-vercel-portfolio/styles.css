@@ -807,13 +807,48 @@ h3 {
 }
 
 .card-media {
+  position: relative;
   overflow: hidden;
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 
+.card-media::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(3, 4, 5, 0.02), rgba(3, 4, 5, 0.3)),
+    radial-gradient(circle at 12% 10%, rgba(228, 189, 109, 0.16), transparent 38%);
+  content: "";
+  pointer-events: none;
+}
+
+.card-media::after {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  border: 1px solid rgba(247, 243, 236, 0.24);
+  border-radius: 999px;
+  background: rgba(3, 4, 5, 0.66);
+  backdrop-filter: blur(10px);
+  padding: 7px 12px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  content: "Play reel";
+}
+
 .project-card img {
+  display: block;
+  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  filter: saturate(1.06) contrast(1.04);
   transition: transform 600ms ease;
 }
 
